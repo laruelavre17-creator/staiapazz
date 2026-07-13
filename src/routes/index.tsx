@@ -77,7 +77,7 @@ function Categories() {
             Selezione curata, qualità elevata e consegna discreta.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+        <div className="grid grid-cols-1 gap-6 w-full">
           {CATEGORIES.map((c) => <CategoryCard key={c.id} c={c} />)}
         </div>
       </div>
@@ -91,7 +91,7 @@ function CategoryCard({ c }: { c: Category }) {
     <Link
       to="/categoria/$category"
       params={{ category: c.id }}
-      className="group relative overflow-hidden rounded-[28px] p-7 text-left glass-panel transition duration-300 hover:-translate-y-1 hover:border-primary/60"
+      className="group relative overflow-hidden rounded-[28px] p-7 text-left glass-panel transition duration-300 hover:-translate-y-1 hover:border-primary/60 w-full"
       style={{
         boxShadow: isGold
           ? "0 18px 70px -24px color-mix(in oklab, var(--primary) 70%, transparent)"
