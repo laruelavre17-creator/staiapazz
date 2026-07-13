@@ -5,9 +5,18 @@ const path = require('path');
 
 async function generate() {
   const input = path.join(__dirname, '..', 'public', 'logo.jpg');
-  const outIco = path.join(__dirname, '..', 'public', 'favicon.ico');
-  const out192 = path.join(__dirname, '..', 'public', 'icon-192.png');
-  const outApple = path.join(__dirname, '..', 'public', 'apple-touch-icon.png');
+  const publicDir = path.join(__dirname, '..', 'public');
+  const docsDir = path.join(__dirname, '..', 'docs');
+
+  const outputs = {
+    ico: 'favicon.ico',
+    icon16: 'icon-16.png',
+    icon32: 'icon-32.png',
+    icon48: 'icon-48.png',
+    icon192: 'icon-192.png',
+    icon512: 'icon-512.png',
+    apple: 'apple-touch-icon.png',
+  };
 
   if (!fs.existsSync(input)) {
     console.error('Input logo not found:', input);
@@ -23,12 +32,22 @@ async function generate() {
   }
 
   const icoBuf = await toIco(pngBuffers);
-  fs.writeFileSync(outIco, icoBuf);
+  fs.writeFileSync(path.join(publicDir, outputs.ico), icoBuf);
+  fs.writeFileSync(path.join(docsDir, outputs.ico), icoBuf);
 
-  await sharp(input).resize(192, 192, { fit: 'cover' }).png().toFile(out192);
-  await sharp(input).resize(180, 180, { fit: 'cover' }).png().toFile(outApple);
+  await sharp(input).resize(16, 16, { fit: 'cover' }).png().toFile(path.join(publicDir, outputs.icon16));
+  await sharp(input).resize(32, 32, { fit: 'cover' }).png().toFile(path.join(publicDir, outputs.icon32));
+  await sharp(input).resize(48, 48, { fit: 'cover' }).png().toFile(path.join(publicDir, outputs.icon48));
+  await sharp(input).resize(192, 192, { fit: 'cover' }).png().toFile(path.join(publicDir, outputs.icon192));
+  await sharp(input).resize(512, 512, { fit: 'cover' }).png().toFile(path.join(publicDir, outputs.icon512));
+  await sharp(input).resize(180, 180, { fit: 'cover' }).png().toFile(path.join(publicDir, outputs.apple));
 
-  console.log('Generated', outIco, out192, outApple);
+  for (const fileName of [outputs.icon16, outputs.icon32, outputs.icon48, outputs.icon192, outputs.icon512, outputs.apple]) {
+    fs.copyFileSync(path.join(publicDir, fileName), path.join(docsDir, fileName));
+  }
+
+  console.log('Generated icons in public and docs directories:');
+  console.log(Object.values(outputs).join(', '));
 }
 
 generate().catch((err) => {

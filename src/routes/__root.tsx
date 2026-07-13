@@ -12,6 +12,8 @@ import appCss from "../styles.css?url";
 import { SITE } from "../config/site";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+const basePath = import.meta.env.BASE_URL || "/";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4 py-12">
@@ -102,10 +104,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico?v=2", type: "image/x-icon" },
-      { rel: "shortcut icon", href: "/favicon.ico?v=2", type: "image/x-icon" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png?v=2" },
-      { rel: "icon", href: "/icon-192.png?v=2", type: "image/png", sizes: "192x192" },
+      { rel: "icon", href: `${basePath}favicon.ico?v=2`, type: "image/x-icon" },
+      { rel: "shortcut icon", href: `${basePath}favicon.ico?v=2`, type: "image/x-icon" },
+      { rel: "icon", href: `${basePath}icon-16.png?v=2`, type: "image/png", sizes: "16x16" },
+      { rel: "icon", href: `${basePath}icon-32.png?v=2`, type: "image/png", sizes: "32x32" },
+      { rel: "apple-touch-icon", href: `${basePath}apple-touch-icon.png?v=2`, type: "image/png", sizes: "180x180" },
+      { rel: "icon", href: `${basePath}icon-192.png?v=2`, type: "image/png", sizes: "192x192" },
+      { rel: "icon", href: `${basePath}icon-512.png?v=2`, type: "image/png", sizes: "512x512" },
+      { rel: "manifest", href: `${basePath}manifest.webmanifest?v=2` },
     ],
 
   }),
