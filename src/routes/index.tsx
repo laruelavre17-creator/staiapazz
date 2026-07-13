@@ -77,7 +77,7 @@ function Categories() {
             Selezione curata, qualità elevata e consegna discreta.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
           {CATEGORIES.map((c) => <CategoryCard key={c.id} c={c} />)}
         </div>
       </div>
