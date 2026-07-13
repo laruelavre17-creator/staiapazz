@@ -15,11 +15,12 @@ export const Route = createFileRoute("/categoria/$category")({
     const title = c ? `${c.name} — ${SITE.brandName}` : SITE.brandName;
     const desc = c?.description ?? SITE.tagline;
     return {
+      title,
       meta: [
-        { title },
         { name: "description", content: desc },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
+        { property: "og:type", content: "website" },
       ],
     };
   },
@@ -82,7 +83,7 @@ function CategoryPage() {
           </div>
         </div>
       </main>
-      <SiteFooter />
+      <SiteFooter className="mt-auto" />
     </div>
   );
 }

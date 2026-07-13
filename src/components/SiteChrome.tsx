@@ -37,9 +37,9 @@ export function SiteHeader() {
   );
 }
 
-export function SiteFooter() {
+export function SiteFooter({ className }: { className?: string }) {
   return (
-    <footer className="mt-16 border-t border-white/10 bg-background/40 backdrop-blur-xl">
+    <footer className={`border-t border-white/10 bg-background/40 backdrop-blur-xl ${className || "mt-16"}`}>
       <div className="mx-auto flex flex-col gap-6 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
