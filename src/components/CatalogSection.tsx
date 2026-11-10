@@ -22,7 +22,6 @@ const filters = [
   { id: "new", label: "NUOVI" },
   { id: "featured", label: "IN EVIDENZA" },
   { id: "extract", label: "ESTRATTO" },
-  { id: "flower", label: "FIORE" },
   { id: "hsh", label: "🍫" },
 ] as const;
 
@@ -97,7 +96,6 @@ export function CatalogSection() {
         (filter === "new" && product.tags?.includes("new")) ||
         (filter === "featured" && product.tags?.includes("featured")) ||
         (filter === "extract" && product.categoryName.toLocaleLowerCase("it") === "estratto") ||
-        (filter === "flower" && product.categoryName.toLocaleLowerCase("it") === "fiore") ||
         (filter === "hash" && product.categoryName.toLocaleLowerCase("it") === "hash");
       return matchesQuery && matchesFilter;
     });
@@ -202,7 +200,7 @@ export function CatalogSection() {
               >
                 <ProductMedia product={product} />
                 <span className="availability-badge">
-                  <CheckCircle2 aria-hidden="true" /> CHIEDI DISPONIBILITÀ
+                  <CheckCircle2 aria-hidden="true" /> DISPONIBILE
                 </span>
               </button>
               <div className="product-card-body">
