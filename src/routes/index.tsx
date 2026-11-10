@@ -394,25 +394,6 @@ function Index() {
                     <Instagram aria-hidden="true" /> Instagram
                   </button>
                 )}
-                {SITE.backupUrl ? (
-                  <a
-                    href={SITE.backupUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ghost-action"
-                  >
-                    <ShieldCheck aria-hidden="true" /> Backup
-                  </a>
-                ) : (
-                  <button
-                    type="button"
-                    className="ghost-action"
-                    disabled
-                    title="Configura SITE.backupUrl"
-                  >
-                    <ShieldCheck aria-hidden="true" /> Backup
-                  </button>
-                )}
               </div>
 
               <a className="scroll-cue" href="#come-ordinare">
