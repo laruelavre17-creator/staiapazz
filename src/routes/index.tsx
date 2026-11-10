@@ -51,8 +51,8 @@ function Index() {
       return;
     }
 
-    const closeTimer = window.setTimeout(() => setIntroClosing(true), 2600);
-    const hideTimer = window.setTimeout(() => setIntroVisible(false), 3100);
+    const closeTimer = window.setTimeout(() => setIntroClosing(true), 1550);
+    const hideTimer = window.setTimeout(() => setIntroVisible(false), 1900);
     return () => {
       window.clearTimeout(closeTimer);
       window.clearTimeout(hideTimer);
@@ -118,9 +118,38 @@ function Index() {
           aria-label={`Introduzione ${SITE.brandName}`}
         >
           <div className="intro-splash-center">
-            <div className="intro-ornament" aria-hidden="true">
-              <span />
-              <span />
+            <svg className="intro-weapons" viewBox="0 0 320 320" aria-hidden="true">
+              <defs>
+                <linearGradient id="intro-weapon-metal" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stopColor="#ff9a67" />
+                  <stop offset="0.5" stopColor="#ff493f" />
+                  <stop offset="1" stopColor="#8f101d" />
+                </linearGradient>
+              </defs>
+              <g
+                className="intro-weapon intro-weapon-left"
+                fill="url(#intro-weapon-metal)"
+                stroke="#ff7a56"
+                strokeWidth="1.25"
+              >
+                <path d="M18 143h28v-11h99v-8h35v8h84v-5h32v5h15v8h-15v5h-95v7h-53v-7H46v15H18z" />
+                <path d="M135 155h24v12l-8 22h-14l5-22h-7zM172 155h25v24l-7 11h-18z" />
+                <path d="M103 124h55v-9h35v9h-10v7h-80zM214 135h42v5h-42zM49 138h11v18H49z" />
+              </g>
+              <g
+                className="intro-weapon intro-weapon-right"
+                fill="url(#intro-weapon-metal)"
+                stroke="#ff7a56"
+                strokeWidth="1.25"
+              >
+                <path d="M18 143h28v-11h99v-8h35v8h84v-5h32v5h15v8h-15v5h-95v7h-53v-7H46v15H18z" />
+                <path d="M135 155h24v12l-8 22h-14l5-22h-7zM172 155h25v24l-7 11h-18z" />
+                <path d="M103 124h55v-9h35v9h-10v7h-80zM214 135h42v5h-42zM49 138h11v18H49z" />
+              </g>
+            </svg>
+          <div className="intro-ornament" aria-hidden="true">
+            <span />
+            <span />
             </div>
             <div className="intro-logo">
               <img src={SITE.logoUrl} alt="" />
