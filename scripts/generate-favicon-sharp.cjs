@@ -4,12 +4,13 @@ const fs = require('fs');
 const path = require('path');
 
 async function generate() {
-  const input = path.join(__dirname, '..', 'public', 'logo.jpg');
+  const input = path.join(__dirname, '..', 'public', 'favicon.svg');
   const publicDir = path.join(__dirname, '..', 'public');
   const docsDir = path.join(__dirname, '..', 'docs');
 
   const outputs = {
     ico: 'favicon.ico',
+    svg: 'favicon.svg',
     icon16: 'icon-16.png',
     icon32: 'icon-32.png',
     icon48: 'icon-48.png',
@@ -42,7 +43,7 @@ async function generate() {
   await sharp(input).resize(512, 512, { fit: 'cover' }).png().toFile(path.join(publicDir, outputs.icon512));
   await sharp(input).resize(180, 180, { fit: 'cover' }).png().toFile(path.join(publicDir, outputs.apple));
 
-  for (const fileName of [outputs.icon16, outputs.icon32, outputs.icon48, outputs.icon192, outputs.icon512, outputs.apple]) {
+  for (const fileName of [outputs.svg, outputs.icon16, outputs.icon32, outputs.icon48, outputs.icon192, outputs.icon512, outputs.apple]) {
     fs.copyFileSync(path.join(publicDir, fileName), path.join(docsDir, fileName));
   }
 
