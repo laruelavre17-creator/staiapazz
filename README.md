@@ -1,4 +1,4 @@
-# HASH — H4SH BOMB
+# H4SH — H4SH BOMB
 
 ![H4SH BOMB](public/logo.jpg?v=20260702)
 

@@ -57,8 +57,8 @@ const TIERS_MOUSSE: PriceTier[] = [
 
 export const CATEGORIES: Category[] = [
   {
-    id: "hash",
-    name: "HASH",
+    id: "hsh",
+    name: "🍫",
     description: "Prodotti impeccabili, selezionati con cura personalmente.",
     accent: "gold",
     products: [
