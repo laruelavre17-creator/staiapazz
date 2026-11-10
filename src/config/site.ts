@@ -34,7 +34,7 @@ export type Product = {
 };
 
 export type Category = {
-  id: "hash";
+  id: "🍫";
   name: string;
   description: string;
   accent: "gold" | "ember";
