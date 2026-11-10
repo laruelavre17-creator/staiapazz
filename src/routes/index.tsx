@@ -51,8 +51,8 @@ function Index() {
       return;
     }
 
-    const closeTimer = window.setTimeout(() => setIntroClosing(true), 1550);
-    const hideTimer = window.setTimeout(() => setIntroVisible(false), 1900);
+    const closeTimer = window.setTimeout(() => setIntroClosing(true), 2600);
+    const hideTimer = window.setTimeout(() => setIntroVisible(false), 2950);
     return () => {
       window.clearTimeout(closeTimer);
       window.clearTimeout(hideTimer);
@@ -118,31 +118,47 @@ function Index() {
           aria-label={`Introduzione ${SITE.brandName}`}
         >
           <div className="intro-splash-center">
-            <div className="intro-photo">
-              <img src="/intro-emblem.webp" alt="" className="intro-photo-image" />
-              <div className="intro-photo-brand">
-                <svg
-                  className="intro-cannabis-leaf intro-cannabis-leaf-left"
-                  viewBox="0 0 64 64"
-                  aria-hidden="true"
-                >
-                  <path d="M32 60c-3-10-8-17-15-23 5 0 9 2 13 5-6-9-9-18-8-29 5 4 9 9 11 17 2-11 7-20 15-27 2 11 0 20-5 29 6-5 12-7 19-6-5 9-12 15-22 18 7 0 13 3 18 8-9 4-17 4-25 0z" />
-                  <path d="M32 57 30 27m2 22-13-13m14 7 13-17" />
-                </svg>
-                <img src={SITE.logoUrl} alt="" className="intro-photo-logo" />
-                <div>
-                  <p>{SITE.brandName}</p>
-                  <span>CATALOGO PRIVATO</span>
+            <div className="intro-overline">
+              <span />
+              <Sparkles aria-hidden="true" />
+              <span>SELEZIONE PRIVATA</span>
+              <Sparkles aria-hidden="true" />
+              <span />
+            </div>
+            <div className="intro-photo-frame">
+              <div className="intro-photo">
+                <img src="/intro-emblem.webp" alt="" className="intro-photo-image" />
+                <div className="intro-photo-brand">
+                  <svg
+                    className="intro-cannabis-leaf intro-cannabis-leaf-left"
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                  >
+                    <path d="M32 60c-3-10-8-17-15-23 5 0 9 2 13 5-6-9-9-18-8-29 5 4 9 9 11 17 2-11 7-20 15-27 2 11 0 20-5 29 6-5 12-7 19-6-5 9-12 15-22 18 7 0 13 3 18 8-9 4-17 4-25 0z" />
+                    <path d="M32 57 30 27m2 22-13-13m14 7 13-17" />
+                  </svg>
+                  <img src={SITE.logoUrl} alt="" className="intro-photo-logo" />
+                  <div>
+                    <p>{SITE.brandName}</p>
+                    <span>CATALOGO PRIVATO</span>
+                  </div>
+                  <svg
+                    className="intro-cannabis-leaf intro-cannabis-leaf-right"
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                  >
+                    <path d="M32 60c-3-10-8-17-15-23 5 0 9 2 13 5-6-9-9-18-8-29 5 4 9 9 11 17 2-11 7-20 15-27 2 11 0 20-5 29 6-5 12-7 19-6-5 9-12 15-22 18 7 0 13 3 18 8-9 4-17 4-25 0z" />
+                    <path d="M32 57 30 27m2 22-13-13m14 7 13-17" />
+                  </svg>
                 </div>
-                <svg
-                  className="intro-cannabis-leaf intro-cannabis-leaf-right"
-                  viewBox="0 0 64 64"
-                  aria-hidden="true"
-                >
-                  <path d="M32 60c-3-10-8-17-15-23 5 0 9 2 13 5-6-9-9-18-8-29 5 4 9 9 11 17 2-11 7-20 15-27 2 11 0 20-5 29 6-5 12-7 19-6-5 9-12 15-22 18 7 0 13 3 18 8-9 4-17 4-25 0z" />
-                  <path d="M32 57 30 27m2 22-13-13m14 7 13-17" />
-                </svg>
               </div>
+            </div>
+            <div className="intro-caption">
+              <span className="intro-caption-line" />
+              <span>ACCESSO RISERVATO</span>
+              <span className="intro-caption-dot" />
+              <span>SOLO 18+</span>
+              <span className="intro-caption-line" />
             </div>
           </div>
           <button type="button" className="intro-skip" onClick={skipIntro}>
@@ -151,7 +167,7 @@ function Index() {
         </div>
       )}
 
-      {showAgeGate && (
+      {showAgeGate && !introVisible && (
         <div
           className={`age-gate-overlay${closingGate ? " gate-closing" : ""}`}
           role="dialog"
