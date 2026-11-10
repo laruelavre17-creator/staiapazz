@@ -27,16 +27,23 @@ const filters = [
 
 type FilterId = (typeof filters)[number]["id"];
 type SortId = "default" | "name" | "recent";
+<<<<<<< HEAD
 type CatalogProduct = Product & {
   categoryId: string;
   categoryName: string;
   categoryDescription: string;
 };
+=======
+type CatalogProduct = Product & { categoryName: string; categoryDescription: string };
+>>>>>>> d0df6a05cf43fd91695c06685d845bf353481b22
 
 const products: CatalogProduct[] = CATEGORIES.flatMap((category) =>
   category.products.map((product) => ({
     ...product,
+<<<<<<< HEAD
     categoryId: category.id,
+=======
+>>>>>>> d0df6a05cf43fd91695c06685d845bf353481b22
     categoryName: category.name,
     categoryDescription: category.description,
   })),
@@ -101,7 +108,11 @@ export function CatalogSection() {
         (filter === "new" && product.tags?.includes("new")) ||
         (filter === "featured" && product.tags?.includes("featured")) ||
         (filter === "extract" && product.categoryName.toLocaleLowerCase("it") === "estratto") ||
+<<<<<<< HEAD
         (filter === "hsh" && product.categoryId === "hsh");
+=======
+        (filter === "hash" && product.categoryName.toLocaleLowerCase("it") === "hash");
+>>>>>>> d0df6a05cf43fd91695c06685d845bf353481b22
       return matchesQuery && matchesFilter;
     });
 
@@ -194,7 +205,11 @@ export function CatalogSection() {
           {visibleProducts.map((product, index) => (
             <article
               key={product.id}
+<<<<<<< HEAD
               className="product-card"
+=======
+              className="product-card reveal"
+>>>>>>> d0df6a05cf43fd91695c06685d845bf353481b22
               style={{ animationDelay: `${Math.min(index, 5) * 90}ms` }}
             >
               <button
