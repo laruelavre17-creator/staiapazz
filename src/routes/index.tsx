@@ -290,7 +290,7 @@ function Index() {
                   rel="noopener noreferrer"
                   className="ghost-action"
                 >
-                  Leggi le recensioni
+                  Gruppo Telegram
                 </a>
                 {SITE.instagramUrl ? (
                   <a
