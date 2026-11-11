@@ -2,10 +2,10 @@ import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/categoria/$category")({
   beforeLoad: ({ params }) => {
-    if (params.category !== "🍫") {
+    if (params.category !== "cioccolato") {
       throw notFound();
     }
 
-    throw redirect({ to: "/", 🍫: "catalogo", replace: true });
+    throw redirect({ to: "/", hash: "catalogo", replace: true });
   },
 });
