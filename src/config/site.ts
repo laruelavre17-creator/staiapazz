@@ -5,7 +5,7 @@ export const SITE = {
   brandName: "H4SH BOMB",
   logoUrl: logoUrl,
   telegramUrl: "https://t.me/zio_biod001",
-  telegramReviewsUrl: "https://t.me/+17p_xWV9SL4xNTJk",
+  telegramReviewsUrl: "https://t.me/+uKGY2NmftZY4YzVk",
   instagramUrl: "https://www.instagram.com/h4sh_bomb0.1/",
   backupUrl: "",
   privacyUrl: "",
