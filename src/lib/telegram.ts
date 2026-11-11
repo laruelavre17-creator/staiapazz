@@ -6,15 +6,11 @@ export function buildTelegramLink(
   price: number,
   productUrl?: string,
 ): string {
-  const formattedName = productName.trim();
-  const productLabel = `${formattedName} (${weight}) — €${price}`;
-  const productLine = productUrl ? `Link prodotto: ${productUrl}` : "";
   const message = [
-    `Ciao, vorrei informazioni su ${productLabel}.`,
-    productLine,
-  ]
-    .filter(Boolean)
-    .join("\n");
+    `Ciao, ti contatto per ➡️ ${productName.trim()}`,
+    `Taglio: ${weight}`,
+    `Prezzo: €${price}`,
+  ].join("\n");
 
   return `${SITE.telegramUrl}?text=${encodeURIComponent(message)}`;
 }
