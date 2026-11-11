@@ -49,12 +49,21 @@ const getProductLink = (product?: CatalogProduct, weight?: string) => {
   }
 
   const productName = product.name.trim();
-  const productWeight = weight?.trim();
+  const selectedTier = product.tiers.find((tier) => tier.weight === weight);
+  if (!selectedTier) {
+    return SITE.telegramUrl;
+  }
+
   const locationOrigin =
     typeof window !== "undefined" && window.location ? window.location.origin : "";
   const productPath = productName ? `${locationOrigin}/#${product.id}` : "";
 
-  return buildTelegramLink(productName, productWeight, productPath || undefined);
+  return buildTelegramLink(
+    productName,
+    selectedTier.weight,
+    selectedTier.price,
+    productPath || undefined,
+  );
 };
 
 function ProductMedia({ product, large = false }: { product: CatalogProduct; large?: boolean }) {
