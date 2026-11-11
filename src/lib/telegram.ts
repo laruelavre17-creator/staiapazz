@@ -8,8 +8,8 @@ export function buildTelegramLink(
 ): string {
   const message = [
     `Ciao, ti contatto per ➡️ ${productName.trim()}`,
-    `Taglio: ${weight}`,
-    `Prezzo: €${price}`,
+    `Taglio: ${weight} 🔥`,
+    `Prezzo: €${price} 😉`,
   ].join("\n");
 
   return `${SITE.telegramUrl}?text=${encodeURIComponent(message)}`;
