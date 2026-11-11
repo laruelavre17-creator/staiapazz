@@ -2,9 +2,9 @@ const maradonaVideoUrl = "/dry-premium-city-farm-maradona.mp4";
 const logoUrl = "/logo.jpg";
 
 export const SITE = {
-  brandName: "H4SH BOMB",
+  brandName: "BOMB",
   logoUrl: logoUrl,
-  telegramUrl: "https://t.me/@zioblod01",
+  telegramUrl: "https://t.me/@zioblod001",
   reviewsUrl: "https://t.me/+kMGEzX7AEApjYTI0",
   instagramUrl: "",
   backupUrl: "",
@@ -49,7 +49,7 @@ const TIERS_A: PriceTier[] = [
 
 export const CATEGORIES: Category[] = [
   {
-    id: "hsh",
+    id: "🍫",
     name: "🍫",
     description: "Prodotti impeccabili, selezionati con cura personalmente.",
     accent: "gold",
