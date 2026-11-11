@@ -16,6 +16,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { buildTelegramLink } from "@/lib/telegram";
 
 const filters = [
   { id: "all", label: "TUTTI" },
@@ -42,8 +43,18 @@ const products: CatalogProduct[] = CATEGORIES.flatMap((category) =>
   })),
 );
 
-const getProductLink = (_product?: CatalogProduct, _weight?: string) => {
-  return SITE.telegramUrl;
+const getProductLink = (product?: CatalogProduct, weight?: string) => {
+  if (!product) {
+    return SITE.telegramUrl;
+  }
+
+  const productName = product.name.trim();
+  const productWeight = weight?.trim();
+  const locationOrigin =
+    typeof window !== "undefined" && window.location ? window.location.origin : "";
+  const productPath = productName ? `${locationOrigin}/#${product.id}` : "";
+
+  return buildTelegramLink(productName, productWeight, productPath || undefined);
 };
 
 function ProductMedia({ product, large = false }: { product: CatalogProduct; large?: boolean }) {
