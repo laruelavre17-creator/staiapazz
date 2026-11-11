@@ -284,6 +284,14 @@ function Index() {
                   <Telegram aria-hidden="true" />
                   Contattaci su Telegram
                 </a>
+                <a
+                  href={SITE.telegramReviewsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ghost-action"
+                >
+                  Leggi le recensioni
+                </a>
                 {SITE.instagramUrl ? (
                   <a
                     href={SITE.instagramUrl}

@@ -64,6 +64,9 @@ export function SiteFooter() {
           <a href={SITE.telegramUrl} target="_blank" rel="noopener noreferrer">
             <Send aria-hidden="true" /> Telegram
           </a>
+          <a href={SITE.telegramReviewsUrl} target="_blank" rel="noopener noreferrer">
+            Recensioni Telegram
+          </a>
           {SITE.instagramUrl ? (
             <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer">
               Instagram
