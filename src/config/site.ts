@@ -2,7 +2,7 @@ const maradonaVideoUrl = "/dry-premium-city-farm-maradona.mp4";
 const logoUrl = "/logo.jpg";
 
 export const SITE = {
-  brandName: "BOMB",
+  brandName: "H4SH BOMB",
   logoUrl: logoUrl,
   telegramUrl: "https://t.me/@zioblod001",
   reviewsUrl: "https://t.me/+kMGEzX7AEApjYTI0",
