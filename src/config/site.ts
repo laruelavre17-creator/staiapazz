@@ -1,4 +1,5 @@
 const maradonaVideoUrl = "/dry-premium-city-farm-maradona.mp4";
+const americaSnowVideoUrl = "/dry-premium-city-farm-america-snow.mp4";
 const logoUrl = "/logo.jpg";
 
 export const SITE = {
@@ -32,7 +33,7 @@ export type Product = {
 };
 
 export type Category = {
-  id: "hsh";
+  id: "🍫";
   name: string;
   description: string;
   accent: "gold" | "ember";
@@ -47,6 +48,12 @@ const TIERS_A: PriceTier[] = [
   { weight: "1 kg", price: 2650 },
 ];
 
+const TIERS_B: PriceTier[] = [
+  { weight: "1 g", price: 15 },
+  { weight: "5 g", price: 65 },
+  { weight: "50 g", price: 800 },
+];
+
 export const CATEGORIES: Category[] = [
   {
     id: "🍫",
@@ -59,6 +66,14 @@ export const CATEGORIES: Category[] = [
         name: "DRY PREMIUM CITY FARM MARADONA",
         video: maradonaVideoUrl,
         tiers: TIERS_A,
+      },
+      {
+        id: "america-snow",
+        name: "🇺🇸AMERICA SNOW🇺🇸",
+        video: americaSnowVideoUrl,
+        tags: ["new"],
+        publishedAt: "2026-11-12",
+        tiers: TIERS_B,
       },
     ],
   },
