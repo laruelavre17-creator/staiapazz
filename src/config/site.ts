@@ -13,7 +13,7 @@ export const SITE = {
   termsUrl: "",
   timeZone: "Etc/GMT-1",
   timeZoneLabel: "UTC+1",
-  openingTime: "17:30",
+  openingTime: "11:30",
   closingTime: "00:30",
   tagline: "Qualità premium · Spedizione discreta · Prezzi imbattibili",
   year: 2026,
