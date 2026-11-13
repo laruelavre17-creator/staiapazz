@@ -1,5 +1,6 @@
 const maradonaVideoUrl = "/dry-premium-city-farm-maradona.mp4";
 const americaSnowVideoUrl = "/dry-premium-city-farm-america-snow.mp4";
+const tropicanaCherryVideoUrl = "/DF670CF8-B23B-4767-84EC-F87C4A054B37.mp4";
 const logoUrl = "/logo.jpg";
 
 export const SITE = {
@@ -54,6 +55,12 @@ const TIERS_B: PriceTier[] = [
   { weight: "50 g", price: 800 },
 ];
 
+const TIERS_C: PriceTier[] = [
+  { weight: "1 g", price: 17 },
+  { weight: "5 g", price: 65 },
+  { weight: "50 g", price: 800 },
+];
+
 export const CATEGORIES: Category[] = [
   {
     id: "🍫",
@@ -74,6 +81,14 @@ export const CATEGORIES: Category[] = [
         tags: ["new"],
         publishedAt: "2026-11-12",
         tiers: TIERS_B,
+      },
+      {
+        id: "tropicana-cherry",
+        name: "🍒TROPICANA CHERRY🍒",
+        video: tropicanaCherryVideoUrl,
+        tags: ["new"],
+        publishedAt: "2026-11-13",
+        tiers: TIERS_C,
       },
     ],
   },
