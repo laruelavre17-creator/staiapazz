@@ -1,6 +1,7 @@
 const maradonaVideoUrl = "/dry-premium-city-farm-maradona.mp4";
 const americaSnowVideoUrl = "/dry-premium-city-farm-america-snow.mp4";
 const tropicanaCherryVideoUrl = "/DF670CF8-B23B-4767-84EC-F87C4A054B37.mp4";
+const nectarBoyzVideoUrl = "/A6F29C4D-957D-4A56-A46D-0EB6630111CD.mp4";
 const logoUrl = "/logo.jpg";
 
 export const SITE = {
@@ -61,6 +62,13 @@ const TIERS_C: PriceTier[] = [
   { weight: "50 g", price: 800 },
 ];
 
+const TIERS_D: PriceTier[] = [
+  { weight: "1 g", price: 20 },
+  { weight: "5 g", price: 80 },
+  { weight: "10 g", price: 150 },
+  { weight: "25 g", price: 360 },
+];
+
 export const CATEGORIES: Category[] = [
   {
     id: "🍫",
@@ -89,6 +97,14 @@ export const CATEGORIES: Category[] = [
         tags: ["new"],
         publishedAt: "2026-11-13",
         tiers: TIERS_C,
+      },
+      {
+        id: "nectar-boyz-frozen-fruit-joy",
+        name: "🏆NECTAR BOYZ🍯\n👨‍🔬FROZEN🧪\n🍑FRUIT JOY🍊",
+        video: nectarBoyzVideoUrl,
+        tags: ["new"],
+        publishedAt: "2026-11-14",
+        tiers: TIERS_D,
       },
     ],
   },
