@@ -8,7 +8,7 @@ import {
   ShieldCheck,
   SlidersHorizontal,
 } from "lucide-react";
-import { CATEGORIES, SITE, type Product } from "@/config/site";
+import { CATEGORIES, SITE, type CategoryId, type Product } from "@/config/site";
 import {
   Dialog,
   DialogContent,
@@ -23,10 +23,9 @@ const filters = [
   { id: "new", label: "NUOVI" },
   { id: "featured", label: "IN EVIDENZA" },
   { id: "extract", label: "ESTRATTO" },
-  { id: "hsh", label: "🍫" },
 ] as const;
 
-type FilterId = (typeof filters)[number]["id"];
+type FilterId = (typeof filters)[number]["id"] | CategoryId;
 type SortId = "default" | "name" | "recent";
 type CatalogProduct = Product & {
   categoryId: string;
@@ -111,12 +110,15 @@ export function CatalogSection() {
         `${product.name} ${product.categoryName} ${product.categoryDescription}`
           .toLocaleLowerCase("it")
           .includes(normalizedQuery);
+      const matchesCategory = CATEGORIES.some(
+        (category) => category.id === filter && product.categoryId === category.id,
+      );
       const matchesFilter =
         filter === "all" ||
         (filter === "new" && product.tags?.includes("new")) ||
         (filter === "featured" && product.tags?.includes("featured")) ||
         (filter === "extract" && product.categoryName.toLocaleLowerCase("it") === "estratto") ||
-        (filter === "hsh" && product.categoryId === "hsh");
+        matchesCategory;
       return matchesQuery && matchesFilter;
     });
 
@@ -183,6 +185,17 @@ export function CatalogSection() {
               onClick={() => setFilter(item.id)}
             >
               {item.label}
+            </button>
+          ))}
+          {CATEGORIES.map((category) => (
+            <button
+              key={category.id}
+              type="button"
+              className={`filter-chip${filter === category.id ? " is-active" : ""}`}
+              aria-pressed={filter === category.id}
+              onClick={() => setFilter(category.id)}
+            >
+              {category.name}
             </button>
           ))}
         </div>
