@@ -34,15 +34,10 @@ export type Product = {
   tiers: PriceTier[];
 };
 
-<<<<<<< HEAD
 export type CategoryId = "🍫" | "🌿";
 
 export type Category = {
   id: CategoryId;
-=======
-export type Category = {
-  id: "🍫";
->>>>>>> 38babe2295a788a4bcea199ad8a86071a71e7997
   name: string;
   description: string;
   accent: "gold" | "ember";
@@ -70,11 +65,7 @@ const TIERS_C: PriceTier[] = [
 ];
 
 const TIERS_D: PriceTier[] = [
-<<<<<<< HEAD
   { weight: "1.30 g", price: 20 },
-=======
-  { weight: "1 g", price: 20 },
->>>>>>> 38babe2295a788a4bcea199ad8a86071a71e7997
   { weight: "5 g", price: 80 },
   { weight: "10 g", price: 150 },
   { weight: "25 g", price: 360 },
@@ -94,7 +85,6 @@ export const CATEGORIES: Category[] = [
         tiers: TIERS_A,
       },
       {
-<<<<<<< HEAD
         id: "nectar-boyz-frozen-fruit-joy",
         name: "🏆NECTAR BOYZ🍯\n👨‍🔬FROZEN🧪\n🍑FRUIT JOY🍊",
         video: nectarBoyzVideoUrl,
@@ -111,8 +101,6 @@ export const CATEGORIES: Category[] = [
     accent: "ember",
     products: [
       {
-=======
->>>>>>> 38babe2295a788a4bcea199ad8a86071a71e7997
         id: "america-snow",
         name: "🇺🇸AMERICA SNOW🇺🇸",
         video: americaSnowVideoUrl,
@@ -128,23 +116,8 @@ export const CATEGORIES: Category[] = [
         publishedAt: "2026-11-13",
         tiers: TIERS_C,
       },
-<<<<<<< HEAD
-=======
-      {
-        id: "nectar-boyz-frozen-fruit-joy",
-        name: "🏆NECTAR BOYZ🍯\n👨‍🔬FROZEN🧪\n🍑FRUIT JOY🍊",
-        video: nectarBoyzVideoUrl,
-        tags: ["new"],
-        publishedAt: "2026-11-14",
-        tiers: TIERS_D,
-      },
->>>>>>> 38babe2295a788a4bcea199ad8a86071a71e7997
     ],
   },
 ];
 
-<<<<<<< HEAD
 export const getCategory = (id: CategoryId) => CATEGORIES.find((c) => c.id === id)!;
-=======
-export const getCategory = (id: Category["id"]) => CATEGORIES.find((c) => c.id === id)!;
->>>>>>> 38babe2295a788a4bcea199ad8a86071a71e7997
