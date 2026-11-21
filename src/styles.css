@@ -1605,7 +1605,7 @@
   }
 
   .product-card h3 {
-    min-height: 42px;
+    min-height: 0;
     margin-top: 7px;
     color: #f2ede4;
     font-size: 0.91rem;
@@ -2804,4 +2804,9 @@
       animation: none;
     }
   }
+}
+
+.product-card h3,
+.product-dialog h2 {
+  white-space: pre-line;
 }

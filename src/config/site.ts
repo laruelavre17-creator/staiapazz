@@ -2,6 +2,7 @@ const maradonaVideoUrl = "/dry-premium-city-farm-maradona.mp4";
 const americaSnowVideoUrl = "/dry-premium-city-farm-america-snow.mp4";
 const tropicanaCherryVideoUrl = "/DF670CF8-B23B-4767-84EC-F87C4A054B37.mp4";
 const nectarBoyzVideoUrl = "/A6F29C4D-957D-4A56-A46D-0EB6630111CD.mp4";
+const dryPremiumCityVideoUrl = "/IMG_0117.mp4";
 const logoUrl = "/logo.jpg";
 
 export const SITE = {
@@ -69,6 +70,13 @@ const TIERS_D: PriceTier[] = [
   { weight: "25 g", price: 360 },
 ];
 
+const TIERS_E: PriceTier[] = [
+  { weight: "5 g", price: 20 },
+  { weight: "10 g", price: 40 },
+  { weight: "50 g", price: 175 },
+  { weight: "100 g", price: 350 },
+];
+
 export const CATEGORIES: Category[] = [
   {
     id: "🍫",
@@ -105,6 +113,14 @@ export const CATEGORIES: Category[] = [
         tags: ["new"],
         publishedAt: "2026-11-14",
         tiers: TIERS_D,
+      },
+      {
+        id: "dry-premium-city-farm-maradona-bis",
+        name: "DRY PREMIUM CITY🏡\n✅FARM MARADONA 👨‍🔬",
+        video: dryPremiumCityVideoUrl,
+        tags: ["new"],
+        publishedAt: "2026-11-15",
+        tiers: TIERS_E,
       },
     ],
   },
