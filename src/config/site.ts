@@ -3,6 +3,7 @@ const americaSnowVideoUrl = "/dry-premium-city-farm-america-snow.mp4";
 const tropicanaCherryVideoUrl = "/DF670CF8-B23B-4767-84EC-F87C4A054B37.mp4";
 const nectarBoyzVideoUrl = "/A6F29C4D-957D-4A56-A46D-0EB6630111CD.mp4";
 const dryPremiumCityVideoUrl = "/IMG_0117.mp4";
+const superBoofVideoUrl = "/IMG_0121.mp4";
 const logoUrl = "/logo.jpg";
 
 export const SITE = {
@@ -71,11 +72,17 @@ const TIERS_D: PriceTier[] = [
 ];
 
 const TIERS_E: PriceTier[] = [
-  { weight: "5 g", price: 25 },
-  { weight: "10 g", price: 50 },
+  { weight: "5 g", price: 20 },
+  { weight: "10 g", price: 40 },
   { weight: "50 g", price: 175 },
   { weight: "100 g", price: 350 },
-  { weight: "1 kg", price: 2650 },
+];
+
+const TIERS_F: PriceTier[] = [
+  { weight: "1 g", price: 20 },
+  { weight: "5 g", price: 80 },
+  { weight: "10 g", price: 160 },
+  { weight: "25 g", price: 300 },
 ];
 
 export const CATEGORIES: Category[] = [
@@ -122,6 +129,14 @@ export const CATEGORIES: Category[] = [
         tags: ["new"],
         publishedAt: "2026-11-15",
         tiers: TIERS_E,
+      },
+      {
+        id: "nectar-boyz-super-boof",
+        name: "NECTAR BOYZ\n✅SUPER BOOF✈️",
+        video: superBoofVideoUrl,
+        tags: ["new"],
+        publishedAt: "2026-11-21",
+        tiers: TIERS_F,
       },
     ],
   },
