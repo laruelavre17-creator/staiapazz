@@ -35,8 +35,10 @@ export type Product = {
   tiers: PriceTier[];
 };
 
+export type CategoryId = "🍫" | "🌿";
+
 export type Category = {
-  id: "🍫";
+  id: CategoryId;
   name: string;
   description: string;
   accent: "gold" | "ember";
@@ -64,7 +66,7 @@ const TIERS_C: PriceTier[] = [
 ];
 
 const TIERS_D: PriceTier[] = [
-  { weight: "1 g", price: 20 },
+  { weight: "1.30 g", price: 20 },
   { weight: "5 g", price: 80 },
   { weight: "10 g", price: 150 },
   { weight: "25 g", price: 360 },
@@ -91,6 +93,22 @@ export const CATEGORIES: Category[] = [
         tiers: TIERS_A,
       },
       {
+        id: "nectar-boyz-frozen-fruit-joy",
+        name: "🏆NECTAR BOYZ🍯\n👨‍🔬FROZEN🧪\n🍑FRUIT JOY🍊",
+        video: nectarBoyzVideoUrl,
+        tags: ["new"],
+        publishedAt: "2026-11-14",
+        tiers: TIERS_D,
+      },
+    ],
+  },
+  {
+    id: "🌿",
+    name: "🌿",
+    description: "Selezione naturale, aromi intensi e freschezza autentica.",
+    accent: "ember",
+    products: [
+      {
         id: "america-snow",
         name: "🇺🇸AMERICA SNOW🇺🇸",
         video: americaSnowVideoUrl,
@@ -106,6 +124,7 @@ export const CATEGORIES: Category[] = [
         publishedAt: "2026-11-13",
         tiers: TIERS_C,
       },
+<<<<<<< HEAD
       {
         id: "nectar-boyz-frozen-fruit-joy",
         name: "🏆NECTAR BOYZ🍯\n👨‍🔬FROZEN🧪\n🍑FRUIT JOY🍊",
@@ -122,8 +141,10 @@ export const CATEGORIES: Category[] = [
         publishedAt: "2026-11-15",
         tiers: TIERS_E,
       },
+=======
+>>>>>>> 2ebe0d58a1d8d250327659474b7a08674c033649
     ],
   },
 ];
 
-export const getCategory = (id: Category["id"]) => CATEGORIES.find((c) => c.id === id)!;
+export const getCategory = (id: CategoryId) => CATEGORIES.find((c) => c.id === id)!;
