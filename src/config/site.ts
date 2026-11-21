@@ -71,10 +71,11 @@ const TIERS_D: PriceTier[] = [
 ];
 
 const TIERS_E: PriceTier[] = [
-  { weight: "5 g", price: 20 },
-  { weight: "10 g", price: 40 },
+  { weight: "5 g", price: 25 },
+  { weight: "10 g", price: 50 },
   { weight: "50 g", price: 175 },
   { weight: "100 g", price: 350 },
+  { weight: "1 kg", price: 2650 },
 ];
 
 export const CATEGORIES: Category[] = [
