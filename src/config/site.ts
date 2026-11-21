@@ -1,7 +1,6 @@
 const maradonaVideoUrl = "/dry-premium-city-farm-maradona.mp4";
 const americaSnowVideoUrl = "/dry-premium-city-farm-america-snow.mp4";
 const tropicanaCherryVideoUrl = "/DF670CF8-B23B-4767-84EC-F87C4A054B37.mp4";
-const nectarBoyzVideoUrl = "/A6F29C4D-957D-4A56-A46D-0EB6630111CD.mp4";
 const dryPremiumCityVideoUrl = "/IMG_0117.mp4";
 const superBoofVideoUrl = "/IMG_0121.mp4";
 const logoUrl = "/logo.jpg";
@@ -36,8 +35,10 @@ export type Product = {
   tiers: PriceTier[];
 };
 
+export type CategoryId = "🍫" | "🍁";
+
 export type Category = {
-  id: "🍫";
+  id: CategoryId;
   name: string;
   description: string;
   accent: "gold" | "ember";
@@ -62,13 +63,6 @@ const TIERS_C: PriceTier[] = [
   { weight: "1 g", price: 17 },
   { weight: "5 g", price: 65 },
   { weight: "50 g", price: 800 },
-];
-
-const TIERS_D: PriceTier[] = [
-  { weight: "1 g", price: 20 },
-  { weight: "5 g", price: 80 },
-  { weight: "10 g", price: 150 },
-  { weight: "25 g", price: 360 },
 ];
 
 const TIERS_E: PriceTier[] = [
@@ -99,30 +93,6 @@ export const CATEGORIES: Category[] = [
         tiers: TIERS_A,
       },
       {
-        id: "america-snow",
-        name: "🇺🇸AMERICA SNOW🇺🇸",
-        video: americaSnowVideoUrl,
-        tags: ["new"],
-        publishedAt: "2026-11-12",
-        tiers: TIERS_B,
-      },
-      {
-        id: "tropicana-cherry",
-        name: "🍒TROPICANA CHERRY🍒",
-        video: tropicanaCherryVideoUrl,
-        tags: ["new"],
-        publishedAt: "2026-11-13",
-        tiers: TIERS_C,
-      },
-      {
-        id: "nectar-boyz-frozen-fruit-joy",
-        name: "🏆NECTAR BOYZ🍯\n👨‍🔬FROZEN🧪\n🍑FRUIT JOY🍊",
-        video: nectarBoyzVideoUrl,
-        tags: ["new"],
-        publishedAt: "2026-11-14",
-        tiers: TIERS_D,
-      },
-      {
         id: "dry-premium-city-farm-maradona-bis",
         name: "DRY PREMIUM CITY🏡\n✅FARM MARADONA 👨‍🔬",
         video: dryPremiumCityVideoUrl,
@@ -140,6 +110,30 @@ export const CATEGORIES: Category[] = [
       },
     ],
   },
+  {
+    id: "🍁",
+    name: "🍁",
+    description: "Selezione esclusiva, novità selezionate con cura.",
+    accent: "ember",
+    products: [
+      {
+        id: "america-snow",
+        name: "🇺🇸AMERICA SNOW🇺🇸",
+        video: americaSnowVideoUrl,
+        tags: ["new"],
+        publishedAt: "2026-11-12",
+        tiers: TIERS_B,
+      },
+      {
+        id: "tropicana-cherry",
+        name: "🍒TROPICANA CHERRY🍒",
+        video: tropicanaCherryVideoUrl,
+        tags: ["new"],
+        publishedAt: "2026-11-13",
+        tiers: TIERS_C,
+      },
+    ],
+  },
 ];
 
-export const getCategory = (id: Category["id"]) => CATEGORIES.find((c) => c.id === id)!;
+export const getCategory = (id: CategoryId) => CATEGORIES.find((c) => c.id === id)!;
