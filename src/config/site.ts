@@ -79,7 +79,7 @@ const TIERS_E: PriceTier[] = [
 ];
 
 const TIERS_F: PriceTier[] = [
-  { weight: "1 g", price: 20 },
+  { weight: "1.20 g", price: 20 },
   { weight: "5 g", price: 80 },
   { weight: "10 g", price: 160 },
   { weight: "25 g", price: 300 },
