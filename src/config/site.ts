@@ -103,7 +103,7 @@ export const CATEGORIES: Category[] = [
     products: [
       {
         id: "america-snow",
-        name: "⛽bAMERICA SNOW⛽",
+        name: "⛽AMERICA SNOW⛽",
         video: americaSnowVideoUrl,
         tags: ["new"],
         publishedAt: "2026-11-12",
