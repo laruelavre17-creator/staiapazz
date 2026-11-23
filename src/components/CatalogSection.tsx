@@ -117,7 +117,10 @@ export function CatalogSection() {
         filter === "all" ||
         (filter === "new" && product.tags?.includes("new")) ||
         (filter === "featured" && product.tags?.includes("featured")) ||
-        (filter === "extract" && product.categoryName.toLocaleLowerCase("it") === "estratto") ||
+        (filter === "extract" &&
+          `${product.categoryName} ${product.categoryDescription}`
+            .toLocaleLowerCase("it")
+            .includes("estratto")) ||
         matchesCategory;
       return matchesQuery && matchesFilter;
     });
@@ -134,6 +137,15 @@ export function CatalogSection() {
 
     return filtered;
   }, [filter, query, sort]);
+
+  const groups = useMemo(
+    () =>
+      CATEGORIES.map((category) => ({
+        category,
+        items: visibleProducts.filter((product) => product.categoryId === category.id),
+      })).filter((group) => group.items.length > 0),
+    [visibleProducts],
+  );
 
   const openProduct = (product: CatalogProduct) => {
     setSelectedProduct(product);
@@ -209,51 +221,68 @@ export function CatalogSection() {
             <option value="recent">RECENTI</option>
           </select>
         </label>
-        {sort === "recent" && (
-          <p className="recent-note">
-            Le date di pubblicazione non sono presenti nei dati: è mantenuto l’ordine originale del
-            catalogo.
-          </p>
-        )}
       </div>
 
-      {visibleProducts.length > 0 ? (
-        <div className="product-grid">
-          {visibleProducts.map((product, index) => (
-            <article
-              key={product.id}
-              className="product-card"
-              style={{ animationDelay: `${Math.min(index, 5) * 90}ms` }}
+      {groups.length > 0 ? (
+        <div className="category-groups">
+          {groups.map(({ category, items }) => (
+            <section
+              key={category.id}
+              id={`categoria-${category.id}`}
+              className="category-group"
+              aria-labelledby={`categoria-titolo-${category.id}`}
             >
-              <button
-                type="button"
-                className="product-image-button"
-                onClick={() => openProduct(product)}
-                aria-label={`Apri ${product.name}`}
-              >
-                <ProductMedia product={product} />
-                <span className="availability-badge">
-                  <CheckCircle2 aria-hidden="true" /> DISPONIBILE
-                </span>
-              </button>
-              <div className="product-card-body">
-                <div className="product-category">{product.categoryName}</div>
-                <h3>{product.name}</h3>
-                <p>{product.categoryDescription}</p>
-                <div className="product-card-bottom">
-                  <span className="product-price">
-                    DA <strong>€{Math.min(...product.tiers.map((tier) => tier.price))}</strong>
-                  </span>
-                  <button
-                    type="button"
-                    className="product-select"
-                    onClick={() => openProduct(product)}
-                  >
-                    SCEGLI <span aria-hidden="true">↗</span>
-                  </button>
+              <div className="section-heading category-heading">
+                <div>
+                  <p className="eyebrow">
+                    <span /> {category.description}
+                  </p>
+                  <h2 id={`categoria-titolo-${category.id}`}>
+                    {category.name} <span>{items.length}</span>
+                  </h2>
                 </div>
               </div>
-            </article>
+
+              <div className="product-grid">
+                {items.map((product, index) => (
+                  <article
+                    key={product.id}
+                    className="product-card"
+                    style={{ animationDelay: `${Math.min(index, 5) * 90}ms` }}
+                  >
+                    <button
+                      type="button"
+                      className="product-image-button"
+                      onClick={() => openProduct(product)}
+                      aria-label={`Apri ${product.name}`}
+                    >
+                      <ProductMedia product={product} />
+                      <span className="availability-badge">
+                        <CheckCircle2 aria-hidden="true" /> DISPONIBILE
+                      </span>
+                    </button>
+                    <div className="product-card-body">
+                      <div className="product-category">{product.categoryName}</div>
+                      <h3>{product.name}</h3>
+                      <p>{product.categoryDescription}</p>
+                      <div className="product-card-bottom">
+                        <span className="product-price">
+                          DA{" "}
+                          <strong>€{Math.min(...product.tiers.map((tier) => tier.price))}</strong>
+                        </span>
+                        <button
+                          type="button"
+                          className="product-select"
+                          onClick={() => openProduct(product)}
+                        >
+                          SCEGLI <span aria-hidden="true">↗</span>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       ) : (

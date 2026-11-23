@@ -2810,3 +2810,14 @@
 .product-dialog h2 {
   white-space: pre-line;
 }
+.category-group + .category-group {
+  margin-top: 48px;
+}
+
+.category-group > .category-heading {
+  margin-bottom: 20px;
+}
+
+.category-group .section-heading h2 {
+  font-size: clamp(1.4rem, 3.4vw, 2rem);
+}
