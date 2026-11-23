@@ -1,7 +1,7 @@
+const maradonaVideoUrl = "/222.mp4";
+const superBoofVideoUrl = "/IMG_0124.mp4";
 const americaSnowVideoUrl = "/dry-premium-city-farm-america-snow.mp4";
 const tropicanaCherryVideoUrl = "/DF670CF8-B23B-4767-84EC-F87C4A054B37.mp4";
-const dryPremiumCityVideoUrl = "/IMG_0124.mp4";
-const superBoofVideoUrl = "/IMG_0121.mp4";
 const logoUrl = "/logo.jpg";
 
 export const SITE = {
@@ -80,7 +80,7 @@ export const CATEGORIES: Category[] = [
       {
         id: "dry-premium-city-farm-maradona",
         name: "DRY PREMIUM CITY🏡\n✅FARM MARADONA 👨‍🔬",
-        video: dryPremiumCityVideoUrl,
+        video: maradonaVideoUrl,
         tags: ["new"],
         publishedAt: "2026-11-15",
         tiers: TIERS_E,
