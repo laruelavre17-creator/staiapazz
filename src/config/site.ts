@@ -2,6 +2,7 @@ const maradonaVideoUrl = "/222.mp4";
 const superBoofVideoUrl = "/IMG_0124.mp4";
 const americaSnowVideoUrl = "/dry-premium-city-farm-america-snow.mp4";
 const tropicanaCherryVideoUrl = "/DF670CF8-B23B-4767-84EC-F87C4A054B37.mp4";
+const mountainGiantsVideoUrl = "/a2155f161cba47e59f55d98723939e2b.mp4";
 const logoUrl = "/logo.jpg";
 
 export const SITE = {
@@ -21,12 +22,14 @@ export const SITE = {
   year: 2026,
 };
 
+// Riportato a numero, così i calcoli del frontend funzionano
 export type PriceTier = { weight: string; price: number };
 export type ProductTag = "new" | "featured";
 
 export type Product = {
   id: string;
   name: string;
+  description?: string; // <-- AGGIUNTO QUI PER LE INFO EXTRA
   video?: string;
   image?: string;
   tags?: ProductTag[];
@@ -92,6 +95,21 @@ export const CATEGORIES: Category[] = [
         tags: ["new"],
         publishedAt: "2026-11-21",
         tiers: TIERS_F,
+      },
+      // --- PRODOTTO AGGIORNATO ---
+      {
+        id: "limited-edition-mountain-giants",
+        name: "😉LIMITED EDITION MOUNTAIN GIANTS✅",
+        description: "Box 10x100g · Più g in privato", // <-- INFO AGGIUNTE QUI
+        video: mountainGiantsVideoUrl,
+        tags: ["new"],
+        publishedAt: "2026-11-25",
+        tiers: [
+          { weight: "1 g", price: 70 },
+          { weight: "5 g", price: 350 },
+          { weight: "10 g", price: 700 },
+          { weight: "Box + 🗡️🗡️🗡️ + 100g WPFF", price: 3500 },
+        ],
       },
     ],
   },

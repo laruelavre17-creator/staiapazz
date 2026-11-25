@@ -18,14 +18,7 @@ import {
 } from "@/components/ui/dialog";
 import { buildTelegramLink } from "@/lib/telegram";
 
-const filters = [
-  { id: "all", label: "TUTTI" },
-  { id: "new", label: "NUOVI" },
-  { id: "featured", label: "IN EVIDENZA" },
-  { id: "extract", label: "ESTRATTO" },
-] as const;
-
-type FilterId = (typeof filters)[number]["id"] | CategoryId;
+type FilterId = "all" | CategoryId;
 type SortId = "default" | "name" | "recent";
 type CatalogProduct = Product & {
   categoryId: string;
@@ -113,16 +106,7 @@ export function CatalogSection() {
       const matchesCategory = CATEGORIES.some(
         (category) => category.id === filter && product.categoryId === category.id,
       );
-      const matchesFilter =
-        filter === "all" ||
-        (filter === "new" && product.tags?.includes("new")) ||
-        (filter === "featured" && product.tags?.includes("featured")) ||
-        (filter === "extract" &&
-          `${product.categoryName} ${product.categoryDescription}`
-            .toLocaleLowerCase("it")
-            .includes("estratto")) ||
-        matchesCategory;
-      return matchesQuery && matchesFilter;
+      return matchesQuery && (filter === "all" || matchesCategory);
     });
 
     if (sort === "name") {
@@ -188,26 +172,24 @@ export function CatalogSection() {
 
         <div className="filter-bar" role="group" aria-label="Filtra per categoria">
           <SlidersHorizontal aria-hidden="true" />
-          {filters.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              className={`filter-chip${filter === item.id ? " is-active" : ""}`}
-              aria-pressed={filter === item.id}
-              onClick={() => setFilter(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
+          <button
+            type="button"
+            className={`filter-chip${filter === "all" ? " is-active" : ""}`}
+            aria-pressed={filter === "all"}
+            onClick={() => setFilter("all")}
+          >
+            🌐 TUTTI
+          </button>
           {CATEGORIES.map((category) => (
             <button
               key={category.id}
               type="button"
               className={`filter-chip${filter === category.id ? " is-active" : ""}`}
               aria-pressed={filter === category.id}
-              onClick={() => setFilter(category.id)}
+              aria-label={`Filtra per categoria ${category.name}`}
+              onClick={() => setFilter(filter === category.id ? "all" : category.id)}
             >
-              {category.name}
+              {category.id}
             </button>
           ))}
         </div>

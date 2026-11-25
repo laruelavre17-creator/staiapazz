@@ -10,7 +10,7 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { CatalogSection } from "@/components/CatalogSection";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { SITE } from "@/config/site";
@@ -117,48 +117,61 @@ function Index() {
           role="status"
           aria-label={`Introduzione ${SITE.brandName}`}
         >
+          <div className="intro-static" aria-hidden="true" />
+          <div className="intro-scanlines" aria-hidden="true" />
+          <div className="intro-speed-lines" aria-hidden="true" />
+          <img
+            src="/leaf1-transparent.png"
+            alt=""
+            aria-hidden="true"
+            className="intro-leaf intro-leaf-background-left"
+          />
+          <img
+            src="/leaf2-transparent.png"
+            alt=""
+            aria-hidden="true"
+            className="intro-leaf intro-leaf-background-right"
+          />
+          <img
+            src="/leaf1-transparent.png"
+            alt=""
+            aria-hidden="true"
+            className="intro-leaf intro-leaf-foreground-left"
+          />
+          <img
+            src="/leaf2-transparent.png"
+            alt=""
+            aria-hidden="true"
+            className="intro-leaf intro-leaf-foreground-right"
+          />
+          <div className="intro-particles" aria-hidden="true">
+            {Array.from({ length: 28 }, (_, index) => (
+              <i
+                key={index}
+                style={
+                  {
+                    "--particle": index,
+                    "--particle-x": `${(index - 14) * 9}px`,
+                    "--particle-y": `${index % 2 === 0 ? -180 - (index * 5) : 180 + (index * 5)}px`,
+                    "--particle-left": `${5 + index * 3.2}%`,
+                    "--particle-top": `${30 + ((index * 17) % 44)}%`,
+                  } as CSSProperties
+                }
+              />
+            ))}
+          </div>
+
           <div className="intro-splash-center">
-            <div className="intro-overline">
-              <span />
-              <Sparkles aria-hidden="true" />
-              <span>SELEZIONE PRIVATA</span>
-              <Sparkles aria-hidden="true" />
-              <span />
+            <div className="intro-ak intro-ak-left" aria-hidden="true">
+              <img src="/ak47-transparent.png" alt="" />
             </div>
-            <div className="intro-photo-frame">
-              <div className="intro-photo">
-                <img src="/intro-emblem.webp" alt="" className="intro-photo-image" />
-                <div className="intro-photo-brand">
-                  <svg
-                    className="intro-cannabis-leaf intro-cannabis-leaf-left"
-                    viewBox="0 0 64 64"
-                    aria-hidden="true"
-                  >
-                    <path d="M32 60c-3-10-8-17-15-23 5 0 9 2 13 5-6-9-9-18-8-29 5 4 9 9 11 17 2-11 7-20 15-27 2 11 0 20-5 29 6-5 12-7 19-6-5 9-12 15-22 18 7 0 13 3 18 8-9 4-17 4-25 0z" />
-                    <path d="M32 57 30 27m2 22-13-13m14 7 13-17" />
-                  </svg>
-                  <img src={SITE.logoUrl} alt="" className="intro-photo-logo" />
-                  <div>
-                    <p>{SITE.brandName}</p>
-                    <span>CATALOGO PRIVATO</span>
-                  </div>
-                  <svg
-                    className="intro-cannabis-leaf intro-cannabis-leaf-right"
-                    viewBox="0 0 64 64"
-                    aria-hidden="true"
-                  >
-                    <path d="M32 60c-3-10-8-17-15-23 5 0 9 2 13 5-6-9-9-18-8-29 5 4 9 9 11 17 2-11 7-20 15-27 2 11 0 20-5 29 6-5 12-7 19-6-5 9-12 15-22 18 7 0 13 3 18 8-9 4-17 4-25 0z" />
-                    <path d="M32 57 30 27m2 22-13-13m14 7 13-17" />
-                  </svg>
-                </div>
-              </div>
+            <div className="intro-ak intro-ak-right" aria-hidden="true">
+              <img src="/ak47-transparent.png" alt="" />
             </div>
-            <div className="intro-caption">
-              <span className="intro-caption-line" />
-              <span>ACCESSO RISERVATO</span>
-              <span className="intro-caption-dot" />
-              <span>SOLO 18+</span>
-              <span className="intro-caption-line" />
+            <div className="intro-brand-lockup">
+              <img src={SITE.logoUrl} alt={SITE.brandName} className="intro-brand-logo" />
+              <p className="intro-brand-name">{SITE.brandName}</p>
+              <span className="intro-brand-kicker">CATALOGO PRIVATO</span>
             </div>
           </div>
           <button type="button" className="intro-skip" onClick={skipIntro}>
@@ -238,7 +251,7 @@ function Index() {
                 <h1 id="brand-title" className="brand-wordmark">
                   {SITE.brandName}
                 </h1>
-                <p className="hero-kicker">PRIVATE CATALOG · SELEZIONE RISERVATA</p>
+                <p className="hero-kicker">CATALOGO PRIVATO · SELEZIONE RISERVATA</p>
               </div>
 
               <div className="catalog-pill reveal">
