@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*.ts", "src/**/*.tsx", "vite.config.ts", "eslint.config.js"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.d.ts", "vite.config.ts", "eslint.config.js"],
   "compilerOptions": {
     "target": "ES2022",
     "jsx": "react-jsx",
@@ -12,8 +12,6 @@
     "verbatimModuleSyntax": false,
     "noEmit": true,
     "types": ["vite/client"],
-    "typeRoots": ["./types", "./node_modules/@types"],
-
     /* Linting */
     "skipLibCheck": true,
     "strict": true,
