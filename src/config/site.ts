@@ -8,7 +8,11 @@ const logoUrl = "/logo.jpg";
 export const SITE = {
   brandName: "H4SH BOMB",
   logoUrl: logoUrl,
+<<<<<<< HEAD
   telegramUrl: "https://t.me/zio_@ZIO_PABLO",
+=======
+  telegramUrl: "https://t.me/ZIO_PABLO",
+>>>>>>> 9ab6f2dad84d336c64c5958133650604e5ff932f
   telegramReviewsUrl: "https://t.me/+uKGY2NmftZY4YzVk",
   instagramUrl: "https://www.instagram.com/h4sh_bomb0.1/",
   backupUrl: "",
